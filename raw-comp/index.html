@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="RawComp — macOS app for comparing 2–6 images side by side. RAW and standard formats, synced panes, professional compare modes, non-destructive adjustments." />
+  <meta name="theme-color" content="#0a0b0f" />
+  <base href="/raw-comp/" />
+  <title>RawComp — macOS multi-image comparison</title>
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script>
+    try {
+      var l = localStorage.getItem("rawcomp-home-lang");
+      if (l === "zh") {
+        document.documentElement.lang = "zh-CN";
+        document.documentElement.dataset.lang = "zh";
+      }
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" data-i18n-attr="aria-label:a11y.brand">
+        <img src="assets/favicon.svg" alt="" width="32" height="32" class="brand-icon" />
+        <span class="brand-name">RawComp</span>
+      </a>
+      <nav class="nav" aria-label="Primary" data-i18n-attr="aria-label:a11y.nav">
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#compare" data-i18n="nav.compare">Compare modes</a>
+        <a href="#formats" data-i18n="nav.formats">Formats</a>
+        <a href="#get-started" data-i18n="nav.getStarted">Get started</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-toggle" role="group" data-i18n-attr="aria-label:a11y.langSwitch">
+          <button type="button" class="lang-option is-active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-option" data-lang="zh" aria-pressed="false">中文</button>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="https://github.com/franklioxygen/raw-comp" target="_blank" rel="noopener noreferrer" data-i18n="nav.github">GitHub</a>
+        <a class="btn btn-accent btn-sm" href="https://github.com/franklioxygen/raw-comp/releases" target="_blank" rel="noopener noreferrer" data-i18n="nav.download">Download</a>
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" data-i18n-attr="aria-label:a11y.menuOpen">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <div class="lang-toggle lang-toggle-mobile" role="group" data-i18n-attr="aria-label:a11y.langSwitch">
+        <button type="button" class="lang-option is-active" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang-option" data-lang="zh" aria-pressed="false">中文</button>
+      </div>
+      <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="#compare" data-i18n="nav.compare">Compare modes</a>
+      <a href="#formats" data-i18n="nav.formats">Formats</a>
+      <a href="#get-started" data-i18n="nav.getStarted">Get started</a>
+      <a href="https://github.com/franklioxygen/raw-comp/releases" target="_blank" rel="noopener noreferrer" data-i18n="nav.download">Download</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-glow-2" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="badge-row">
+            <span class="badge" data-i18n="hero.badgeMac">macOS 14+</span>
+            <span class="badge badge-muted" data-i18n="hero.badgeNative">Native Swift</span>
+          </div>
+          <h1 data-i18n="hero.title">RawComp: See every difference between your images — side by side, pixel by pixel.</h1>
+          <p class="hero-lead" data-i18n="hero.lead">
+            A focused macOS comparison tool for photographers and retouchers. Line up RAW files, exports, edits, and crops in 2–6 panes, sync movement, amplify subtle shifts with shared adjustments, and export your verdict.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary btn-lg" href="https://github.com/franklioxygen/raw-comp/releases" target="_blank" rel="noopener noreferrer" data-i18n="hero.ctaDownload">Download release</a>
+            <a class="btn btn-secondary btn-lg" href="#get-started" data-i18n="hero.ctaQuickStart">Quick start</a>
+            <a class="btn btn-ghost btn-lg" href="https://github.com/franklioxygen/raw-comp" target="_blank" rel="noopener noreferrer" data-i18n="hero.ctaSource">View source</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal reveal-delay">
+          <figure class="app-mock">
+            <img
+              class="app-mock__shot"
+              src="assets/app-screenshot.jpg"
+              alt="RawComp window showing a multi-pane image comparison layout"
+              width="1193"
+              height="725"
+              loading="lazy"
+              decoding="async"
+              data-i18n-attr="alt:hero.mockAlt"
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlights">
+      <div class="container highlights-grid">
+        <article class="highlight-card reveal">
+          <div class="highlight-icon pink" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="8" height="18" rx="2"/><rect x="13" y="3" width="8" height="18" rx="2"/></svg>
+          </div>
+          <h3 data-i18n="highlights.h1Title">Built for comparison</h3>
+          <p data-i18n="highlights.h1Body">Not a catalog or editor — RawComp exists to answer one question: how do these images differ? Multi-pane layouts keep context in one window.</p>
+        </article>
+        <article class="highlight-card reveal reveal-delay">
+          <div class="highlight-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 data-i18n="highlights.h2Title">Sync or isolate panes</h3>
+          <p data-i18n="highlights.h2Body">Link zoom and pan across every pane, or work freehand. Mark a synchronized highlight region to draw eyes to matching detail.</p>
+        </article>
+        <article class="highlight-card reveal reveal-delay-2">
+          <div class="highlight-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <h3 data-i18n="highlights.h3Title">Fair, shared adjustments</h3>
+          <p data-i18n="highlights.h3Body">Push exposure, tone, color, and compare modes equally across panes so differences stay honest while shadows, edges, and noise pop.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow" data-i18n="features.eyebrow">Features</p>
+          <h2 data-i18n="features.title">Everything you need to judge image quality and edits.</h2>
+          <p class="section-lead" data-i18n="features.lead">From opening a folder of exports to saving a .rawcomp session — inspection, amplification, and export in one native app.</p>
+        </header>
+        <div class="feature-grid">
+          <article class="feature-card reveal"><h3 data-i18n="features.f1Title">2 / 3 / 4 / 6-up layouts</h3><p data-i18n="features.f1Body">Choose how many images to compare in a single window without juggling separate viewers.</p></article>
+          <article class="feature-card reveal"><h3 data-i18n="features.f2Title">RAW &amp; standard formats</h3><p data-i18n="features.f2Body">Open JPEG, PNG, HEIC, TIFF, and dozens of camera RAW extensions via macOS decoders.</p></article>
+          <article class="feature-card reveal"><h3 data-i18n="features.f3Title">Linked viewports</h3><p data-i18n="features.f3Body">Free or synced pan/zoom/rotate with fit-to-window and 100% zoom for pixel-level review.</p></article>
+          <article class="feature-card reveal"><h3 data-i18n="features.f4Title">Compare modes</h3><p data-i18n="features.f4Body">Clipping overlay, edge map, false color, noise emphasis, absolute difference, Delta E, blink, and wipe.</p></article>
+          <article class="feature-card reveal"><h3 data-i18n="features.f5Title">Shared inspector</h3><p data-i18n="features.f5Body">Light, tone curve, color mixer, B&amp;W, presence, noise, optics, and geometry — applied to all panes.</p></article>
+          <article class="feature-card reveal"><h3 data-i18n="features.f6Title">Histogram &amp; readout</h3><p data-i18n="features.f6Body">Per-pane histogram, clipping indicators, cursor pixel values, and file metadata.</p></article>
+          <article class="feature-card reveal"><h3 data-i18n="features.f7Title">Sessions &amp; export</h3><p data-i18n="features.f7Body">Save .rawcomp sessions with layout restoration; export the grid as PNG or TIFF from the current viewport.</p></article>
+          <article class="feature-card reveal"><h3 data-i18n="features.f8Title">8 UI languages</h3><p data-i18n="features.f8Body">English, Chinese, Japanese, Korean, and more — switch anytime in the app.</p></article>
+          <article class="feature-card reveal"><h3 data-i18n="features.f9Title">Non-destructive</h3><p data-i18n="features.f9Body">Adjustments preview on top of originals — your files on disk stay untouched.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="compare">
+      <div class="container split-section">
+        <div class="split-copy reveal">
+          <p class="eyebrow" data-i18n="compare.eyebrow">Compare modes</p>
+          <h2 data-i18n="compare.title">Professional tools when neutral view is not enough.</h2>
+          <p class="section-lead" data-i18n="compare.lead">Some differences hide in shadows, micro-contrast, compression, or noise. RawComp's modes and shared sliders make them visible without favoring one pane.</p>
+          <ul class="check-list">
+            <li data-i18n="compare.li1">Absolute difference and Delta E for color-accurate checks</li>
+            <li data-i18n="compare.li2">Blink and wipe (2-up) for A/B style review</li>
+            <li data-i18n="compare.li3">Edge map and false color for structure and exposure</li>
+            <li data-i18n="compare.li4">Reference pane and analysis gain per mode</li>
+          </ul>
+        </div>
+        <div class="split-visual reveal reveal-delay">
+          <figure class="video-frame">
+            <img src="assets/app-screenshot.jpg" alt="RawComp comparison workspace" width="640" height="390" loading="lazy" data-i18n-attr="alt:compare.caption" />
+            <figcaption data-i18n="compare.caption">Screenshot from the RawComp comparison workspace</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="formats">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow" data-i18n="formats.eyebrow">Supported formats</p>
+          <h2 data-i18n="formats.title">Compressed images and broad RAW coverage.</h2>
+          <p class="section-lead" data-i18n="formats.lead">RawComp recognizes common camera RAW extensions plus standard web and print formats. Decoding follows what macOS and Quick Look can provide on your machine.</p>
+        </header>
+        <ul class="platform-chips reveal" role="list">
+          <li data-i18n="formats.chipRaw">Camera RAW</li>
+          <li data-i18n="formats.chipDng">DNG</li>
+          <li data-i18n="formats.chipCr">CR2 / CR3</li>
+          <li data-i18n="formats.chipNef">NEF / NRW</li>
+          <li class="highlight" data-i18n="formats.chipStd">JPEG · PNG · HEIC · TIFF</li>
+        </ul>
+        <p class="lang-note reveal">
+          <span data-i18n="formats.noteBefore">Full extension list in the </span>
+          <a href="https://github.com/franklioxygen/raw-comp#supported-formats" target="_blank" rel="noopener noreferrer" data-i18n="formats.readmeLink">raw-comp README →</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="get-started">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow" data-i18n="quickStart.eyebrow">Quick start</p>
+          <h2 data-i18n="quickStart.title">From download to first comparison in minutes.</h2>
+        </header>
+        <div class="install-steps reveal">
+          <div class="install-step">
+            <span class="step-num">1</span>
+            <div>
+              <h3 data-i18n="quickStart.s1Title">Download</h3>
+              <p data-i18n="quickStart.s1Body">Grab the latest build from GitHub Releases (macOS 14 or newer).</p>
+              <p><a class="btn btn-secondary btn-sm" href="https://github.com/franklioxygen/raw-comp/releases" target="_blank" rel="noopener noreferrer" data-i18n="nav.download">Download</a></p>
+            </div>
+          </div>
+          <div class="install-step">
+            <span class="step-num">2</span>
+            <div>
+              <h3 data-i18n="quickStart.s2Title">From source</h3>
+              <p data-i18n="quickStart.s2Body">Clone the repo and run with Swift Package Manager or Xcode.</p>
+              <div class="code-block">
+                <pre><code>git clone https://github.com/franklioxygen/raw-comp.git
+cd raw-comp
+swift run RawComp</code></pre>
+                <button type="button" class="copy-btn" data-copy="git clone https://github.com/franklioxygen/raw-comp.git
+cd raw-comp
+swift run RawComp" data-i18n="quickStart.copy" data-i18n-attr="aria-label:quickStart.copyCmds">Copy</button>
+              </div>
+            </div>
+          </div>
+          <div class="install-step">
+            <span class="step-num">3</span>
+            <div>
+              <h3 data-i18n="quickStart.s3Title">Compare</h3>
+              <p data-i18n="quickStart.s3Body">Open images, pick a layout, toggle synced panes, and use the inspector to amplify differences.</p>
+            </div>
+          </div>
+        </div>
+        <aside class="permissions-card reveal">
+          <h3 data-i18n="quickStart.reqsTitle">Requirements</h3>
+          <ul>
+            <li><strong data-i18n="quickStart.req1Title">macOS 14+</strong> — <span data-i18n="quickStart.req1Body">Apple Silicon or Intel</span></li>
+            <li><strong data-i18n="quickStart.req2Title">Xcode / Swift 6</strong> — <span data-i18n="quickStart.req2Body">only when building from source</span></li>
+            <li><strong data-i18n="quickStart.req3Title">Local decoders</strong> — <span data-i18n="quickStart.req3Body">some RAW files may open as Quick Look previews until LibRaw lands</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="stack">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow" data-i18n="stack.eyebrow">Technology</p>
+          <h2 data-i18n="stack.title">Native macOS, focused scope.</h2>
+        </header>
+        <div class="stack-grid reveal">
+          <div class="stack-card">
+            <h3 data-i18n="stack.app">Application</h3>
+            <p data-i18n="stack.appBody">Swift 6 · SwiftUI · AppKit bridges · SPM</p>
+          </div>
+          <div class="stack-card">
+            <h3 data-i18n="stack.focus">Philosophy</h3>
+            <p data-i18n="stack.focusBody">Comparison-first — not a DAM, not a destructive RAW editor</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-inner reveal">
+        <div>
+          <h2 data-i18n="cta.title">Ready to compare your next shoot?</h2>
+          <p data-i18n="cta.body">Open source on GitHub. Download a release or build from source on your Mac.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" href="https://github.com/franklioxygen/raw-comp/releases" target="_blank" rel="noopener noreferrer" data-i18n="cta.download">Download</a>
+          <a class="btn btn-secondary btn-lg" href="https://github.com/franklioxygen/raw-comp" target="_blank" rel="noopener noreferrer" data-i18n="cta.star">Star on GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/favicon.svg" alt="" width="24" height="24" />
+        <span>RawComp</span>
+      </div>
+      <p class="footer-meta"><span data-i18n="footer.license">See repository license · </span><a href="https://github.com/franklioxygen/raw-comp">franklioxygen/raw-comp</a></p>
+      <div class="footer-links">
+        <p class="footer-meta"><a href="https://github.com/franklioxygen/raw-comp/blob/main/README.zh-CN.md" data-i18n="footer.docLink" data-i18n-href="footer.docHref">中文文档</a></p>
+        <p class="footer-meta"><a href="https://github.com/franklioxygen/raw-comp/releases" data-i18n="footer.releases">Releases</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
