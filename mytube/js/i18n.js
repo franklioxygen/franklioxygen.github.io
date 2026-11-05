@@ -35,7 +35,7 @@
         ctaQuickStart: "Quick start",
         ctaSource: "View source",
         mockAlt:
-          "MyTube web UI showing collections, tags, authors, and a video library grid",
+          "MyTube library with video cards, author avatars, collections, tags, and view tabs",
       },
       highlights: {
         h1Title: "Own your library",
@@ -196,7 +196,7 @@
         ctaDemo: "体验在线演示",
         ctaQuickStart: "快速开始",
         ctaSource: "查看源码",
-        mockAlt: "MyTube Web 界面：收藏夹、标签、作者与视频库网格",
+        mockAlt: "MyTube 媒体库：视频卡片、作者头像、收藏夹、标签与视图切换",
       },
       highlights: {
         h1Title: "数据归你所有",
